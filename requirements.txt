@@ -6,4 +6,4 @@ numpy==1.16.5
 Keras==2.3.1
 lxml==4.4.1
 tensorflow==1.15.2
-python==3.6.7
+

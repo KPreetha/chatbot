@@ -8,7 +8,7 @@ Created on Sat May  9 22:59:57 2020
 from flask import Flask, render_template, request
 from chatbot_run import chatbot_response
 from scrape import scrape_data
-
+import speech_recognition as sr
 
 check_wikipedia1 = ['what', 'is']
 check_wikipedia2 = ['who', 'is']
@@ -69,7 +69,18 @@ def get_bot_response():
     
     return response
 
-
+@app.route("/speech")
+def speech_recognition():
+    r = sr.Recognizer()
+    sr.pause_threshold = 0.5
+    with sr.Microphone() as source:
+        r.adjust_for_ambient_noise(source)
+        audio = r.listen(source)
+        try:
+            return r.recognize_google(audio) 
+        except sr.UnknownValueError:
+            error = "error"
+            return error
 
 if __name__ == "__main__":
     app.run(threaded=False)

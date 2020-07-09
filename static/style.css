@@ -38,7 +38,7 @@ margin-top: 60px;
 vertical-align:middle;
 }
 #textInput {
-width: 80%;
+width: 100%;
 border: none;
 color: rgb(21, 58, 219);
 background-image: linear-gradient(to bottom right, rgb(14, 222, 236),rgb(127, 177, 201));

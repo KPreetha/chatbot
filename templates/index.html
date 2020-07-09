@@ -10,10 +10,9 @@
       <div id="chatbox">
         <p class="botText"><span>Hi! I'm Farmer's Assistant.I will help you solving your doubts regarding Agriculture </span></p>
      </div>
-      <div id="userInput">
+     <div id="userInput">
         <input id="textInput" type="text" name="msg" placeholder="Ask me anything">
-        <input id="buttonInput" type="image"   value="Send">
-        
+        <input id="buttonInput" type="submit" value="Send">
       </div>
       <script>
         function getBotResponse() {
@@ -28,13 +27,6 @@
             document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
           });
         }
-        
-        function getError(){
-          var botHtml = '<p class="botText"><span>' + "Could not understand audio, Please try again" + '</span></p>';
-          $("#chatbox").append(botHtml);
-          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-        }
-
         $("#textInput").keypress(function(e) {
             if(e.which == 13) {
                 getBotResponse();
@@ -43,11 +35,6 @@
         $("#buttonInput").click(function() {
           getBotResponse();
         })
-
-        
-				});
-        
-
       </script>
     </div>
   </body>

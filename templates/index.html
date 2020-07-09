@@ -28,18 +28,7 @@
             document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
           });
         }
-        function getSpeechResponse(speechdata){
-          var userHtml= '<p class="userText"><span>' + speechdata + '</span></p>';
-          $("#textInput").val("");
-          $("#chatbox").append(userHtml);
-          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-          $.get("/get", { msg: speechdata }).done(function(data) {
-            var botHtml = '<p class="botText"><span>' + data + '</span></p>';
-            $("#chatbox").append(botHtml);
-            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-          });
-        }
-
+        
         function getError(){
           var botHtml = '<p class="botText"><span>' + "Could not understand audio, Please try again" + '</span></p>';
           $("#chatbox").append(botHtml);
@@ -55,19 +44,7 @@
           getBotResponse();
         })
 
-        $("#voiceInput").click(function() {
-          $("#textInput").val("Speak to ask question");
-          $.get("/speech").done(function(data){
-            if(data == "error")
-            {
-              getError();
-            }
-            else{
-
-              $("#textInput").val(data);
-              getSpeechResponse(data);
-            }
-          })
+        
 				});
         
 

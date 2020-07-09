@@ -13,6 +13,7 @@
       <div id="userInput">
         <input id="textInput" type="text" name="msg" placeholder="Ask me anything">
         <input id="buttonInput" type="submit" value="Send">
+        <input id="voiceInput" type="submit" value="Speak">
       </div>
       <script>
         function getBotResponse() {
@@ -27,6 +28,24 @@
             document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
           });
         }
+        function getSpeechResponse(speechdata){
+          var userHtml= '<p class="userText"><span>' + speechdata + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          $.get("/get", { msg: speechdata }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+            $("#chatbox").append(botHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          });
+        }
+
+        function getError(){
+          var botHtml = '<p class="botText"><span>' + "Could not understand audio, Please try again" + '</span></p>';
+          $("#chatbox").append(botHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+        }
+
         $("#textInput").keypress(function(e) {
             if(e.which == 13) {
                 getBotResponse();
@@ -35,7 +54,25 @@
         $("#buttonInput").click(function() {
           getBotResponse();
         })
+
+        $("#voiceInput").click(function() {
+          $("#textInput").val("Speak to ask question");
+          $.get("/speech").done(function(data){
+            if(data == "error")
+            {
+              getError();
+            }
+            else{
+
+              $("#textInput").val(data);
+              getSpeechResponse(data);
+            }
+          })
+				});
+        
+
       </script>
+   
     </div>
   </body>
 </html>

@@ -77,7 +77,7 @@ def speech_recognition():
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
         try:
-            return r.recognize_google(audio) 
+            return r.recognize_ibm(audio) 
         except sr.UnknownValueError:
             error = "error"
             return error

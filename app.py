@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Sat May  9 22:59:57 2020
 
@@ -7,20 +6,48 @@ Created on Sat May  9 22:59:57 2020
 
 from flask import Flask, render_template, request
 from chatbot_run import chatbot_response
+from speech import ChatInterface
 from scrape import scrape_data
-
+import speech_recognition as sr
+from gtts import gTTS 
+import os 
+import pyttsx3
+import engineio
+import threading
+import time
 
 check_wikipedia1 = ['what', 'is']
 check_wikipedia2 = ['who', 'is']
 check_wikihow = ['how', 'to']
+    
+
+
 
 app = Flask(__name__)
-@app.route("/")
+@app.route("/login")
 def login():
     return render_template("login.html")
+    
 @app.route("/home")
 def home():
     return render_template("index.html")
+
+@app.route("/")
+def mainpage():
+    return render_template("home.html")
+
+@app.route("/speech")
+def speech_recognition():
+    r = sr.Recognizer()
+    sr.pause_threshold = 0.5
+    with sr.Microphone() as source:
+        r.adjust_for_ambient_noise(source)
+        audio = r.listen(source)
+        try:
+            return r.recognize_google(audio) 
+        except sr.UnknownValueError:
+            error = "error"
+            return error
 
 @app.route("/get")
 def get_bot_response():
@@ -67,12 +94,10 @@ def get_bot_response():
         elif user_request == 'hello':
             response = 'Good to see you again'
         else:
-            response = 'hey'
-   
-    
+            response = '...'
+    c=ChatInterface()
+    c.speechtotext(response)
     return response
-
-
 
 if __name__ == "__main__":
     app.run(threaded=False)

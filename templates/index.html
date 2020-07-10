@@ -5,15 +5,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <h1>Farm Friendly Software Agent</h1>
     <div>
+    <h1>Farm Friendly Software Agent</h1>
+    </div>
+      <div id="chatarea">
       <div id="chatbox">
         <p class="botText"><span>Hi! I'm Farmer's Assistant.I will help you solving your doubts regarding Agriculture </span></p>
      </div>
      <div id="userInput">
         <input id="textInput" type="text" name="msg" placeholder="Ask me anything">
-        <input id="buttonInput" type="submit" value="Send">
-
+        <input id="buttonInput" type="image"  src="../static/text_icon.png" value="Send">
+        <input id="voiceInput" type="image" value="Ask" src="../static/speech_icon.png">
+        
       </div>
       <script>
         function getBotResponse() {

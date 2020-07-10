@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.button{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 250px;
+    border-radius: 5px;
+    height: 55px;
+    background-color:greenyellow;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #0e2c12;
+  color: #fbfffb;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.extra{
+    padding-top: 10px;
+    text-align: center;
+    font-size: 25px;
+    height: 110px;
+    font-weight: bold;
+    color:#ffffff;
+}
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #155a26;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #1c7432;
+}
+
+#content{
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    color: #ffffff;
+    padding-left: 10px;
+    min-height: 300px;
+}
+.aside {
+  background-color: #1c7432;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 25px;
+  
+}
+body {
+    font-family: Garamond;
+}
+
+.footer {
+  background-color: #0e2c12;
+  color: white ;
+  text-align: center;
+  font-size: 17px;
+  padding: 15px;
+}
+.row {
+  background-image: url("../static/wheat-1117267.jpg");
+  background-color:#5ed88b;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Farm Friendly Software Agent</h1>
+</div>
+
+<div class="row">
+  <div class="col-3 col-s-3 menu">
+    <ul>
+      <li>Login<a href ="/login"> Login</a> </li>
+      <li><a href="/home">Start chat</a></li>
+      <li>Weather </li>
+      <li>About</li>
+    </ul>
+  </div>
+
+  <div class="col-6 col-s-9" id="content">
+    <h1><b>Fact of the day</b></h1>
+    <p>The ideal climate for grape growing is the Mediterranean climate. In its natural habitat, the vines grow and produce during the hot and dry period. Under South Indian conditions – vines produce vegetative growth during the period from April to September and then fruiting period from October to March. Temperatures above 100C to 400C influence the yield and quality. </p>
+    <centre><button class="button" id="button"><a style="text-decoration: none;" href="/home">Start Chat</a></button></centre>
+                             
+</div>
+
+  <div class="col-3 col-s-12">
+    
+      <img src="../static/grapes-2715711.jpg"  width="250" height="250">
+      <div class= "extra">Grapes</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Farm friendly software agent is a chatbot that can be used by farmers for any agricultural related queries.</p>
+</div>
+
+</body>
+</html>
+

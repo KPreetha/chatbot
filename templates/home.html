@@ -70,6 +70,19 @@ html {
   background-color: #1c7432;
 }
 
+a:link, a:visited {
+  
+  color: white;
+  
+  text-align: center;
+  text-decoration: none;
+  
+}
+
+a:hover, a:active {
+  background-color:#155a26;
+}
+
 #content{
     background-color: rgba(0, 0, 0, 0.4);
     margin-left: auto;
@@ -77,6 +90,7 @@ html {
     vertical-align: middle;
     color: #ffffff;
     padding-left: 10px;
+    padding-top: 10px;
     min-height: 300px;
 }
 .aside {
@@ -151,20 +165,20 @@ body {
 <div class="row">
   <div class="col-3 col-s-3 menu">
     <ul>
-      <li>Login<a href ="/login"> Login</a> </li>
-      <li><a href="/home">Start chat</a></li>
-      <li>Weather </li>
-      <li>About</li>
+      <a href ="/login"> <li>Login</li></a> 
+      <a href="/home"><li>Start chat</li></a> 
+      <a href="/#"><li>Weather </li></a>
+      <a href="/#"><li>About</li></a>
     </ul>
   </div>
 
   <div class="col-6 col-s-9" id="content">
     <h1><b>Fact of the day</b></h1>
     <p>The ideal climate for grape growing is the Mediterranean climate. In its natural habitat, the vines grow and produce during the hot and dry period. Under South Indian conditions – vines produce vegetative growth during the period from April to September and then fruiting period from October to March. Temperatures above 100C to 400C influence the yield and quality. </p>
-    <centre><button class="button" id="button"><a style="text-decoration: none;" href="/home">Start Chat</a></button></centre>
-                             
+    <centre><a style="text-decoration: none;" href="/home"><button class="button" id="button"><b>Start Chat</b></button></a></centre>
+                       
 </div>
-
+    
   <div class="col-3 col-s-12">
     
       <img src="../static/grapes-2715711.jpg"  width="250" height="250">

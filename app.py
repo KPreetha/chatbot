@@ -17,6 +17,7 @@ check_wikihow = ['how', 'to']
 
 
 
+
 app = Flask(__name__)
 @app.route("/login")
 def login():
@@ -30,6 +31,9 @@ def home():
 def mainpage():
     return render_template("home.html")
 
+@app.route("/homepage")
+def homepage():
+    return render_template("home.html")
 
 @app.route("/get")
 def get_bot_response():

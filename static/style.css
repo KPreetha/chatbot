@@ -75,7 +75,7 @@ height: 25px;
 .userText {
 color: black;
 font-family: monospace;
-font-size: 17px;
+font-size: 14px;
 text-align: right;
 line-height: 30px;
 }
@@ -87,8 +87,8 @@ border-radius: 2px;
 }
 .botText {
 color: white;
-font-family: monospace;
-font-size: 17px;
+font-family: monospace ;
+font-size: 14px;
 text-align: left;
 line-height: 30px;
 }
